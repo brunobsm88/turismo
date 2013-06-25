@@ -1,0 +1,131 @@
+﻿@{
+    ViewBag.Title = "listaViajes";
+}
+
+<style>
+   body {
+        
+        background-attachment: fixed;
+        background-image: url(/Content/assets/img/fondos/fondo_viajes.jpg);
+        background-position: top center;
+        background-repeat: no-repeat;
+ 
+        margin:0;
+        padding: 0;
+ 
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+}
+ 
+/*
+This next definition doesn't allow the background to get any smaller
+than a predefined size (640x426px in this case). Change the values
+here to match your background image size. The configuration in the
+flexi-background javascript file should also match these values.
+*/
+ 
+@@media only all and (max-width: 640px) and (max-height: 426px) {
+body {
+background-size: 640px 426px;
+-moz-background-size: 640px 426px;
+-webkit-background-size: 640px 426px;
+}
+}
+ 
+/*
+The next 2 definitions are for support in iOS devices.
+Since they don't recoginze the 'cover' keyword for background-size
+we need to simulate it with percentages and orientation
+*/
+ 
+@@media only screen and (orientation: portrait) and (device-width: 320px), (device-width: 768px) {
+body {
+-webkit-background-size: auto 100%;
+}
+}
+ 
+@@media only screen and (orientation: landscape) and (device-width: 320px), (device-width: 768px) {
+body {
+-webkit-background-size: 100% auto;
+}
+}
+    center {
+        color:#fcf000; text-shadow: 0 0 0.2em #000, 0 0 0.2em #000,
+               0 0 0.2em #000
+        
+ 
+        
+    }
+    .well {
+        color:#000;
+        text-shadow:none;
+        height:250px;
+        word-break:keep-all;
+        overflow-x:hidden;
+        overflow-y: auto;
+        text-align:left;
+    }
+    .estilo {
+        color:#fff;
+        margin:-30px 0px;
+    }
+    .featured {
+        text-shadow: 0 0 0.3em #bab5b5, 0 0 0.3em #bab5b5, 0 0 0.3em #bab5b5;
+    }
+    #col1 {
+        text-shadow: 0 0 0.3em #000, 0 0 0.3em #000, 0 0 0.3em #000;
+    }
+    #col2 {
+        text-shadow: 0 0 0.3em #000, 0 0 0.3em #000, 0 0 0.3em #000;
+    }
+    .link {
+         text-shadow:none;
+    }
+   .contenidos{
+    width:100% - 60px;
+    height: 100%;
+    text-align:left;
+    background-color:#095a09;
+    padding:30px;
+    color:#fff;
+    margin:0px 0px;
+}
+
+    .colu1 {
+        width: 100%;
+    }
+    .imagen {
+    float:left;
+    margin: 0 auto;
+    width:50%; 
+}
+    .promocion {
+    float:right;
+    margin: 0 auto;
+    width:50%;
+    vertical-align:top;
+}
+
+
+</style>
+<h2>lista Viajes</h2>
+
+<div class="contenidos">
+    <div class="colu1">holaa
+        <div class="imagen"> gegegege</div>
+    </div>
+    <hr> 
+    <div class="colu1">que
+
+    </div>
+    <hr> 
+    <div class="colu1">tal</div>
+    <hr> 
+    <div class="colu1">Vengo</div>
+    <hr> 
+    <div class="colu1">a</div>
+    <hr>
+    <div class="colu1">flotar</div>
+    <hr> 
+</div>

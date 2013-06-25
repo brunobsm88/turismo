@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "panelAdministrativo";
+}
+<style>
+   body {
+        
+        background-attachment: fixed;
+        background-color: #333;
+        background-image: url(/Content/assets/img/fondos/fondo_registro.jpg);
+        background-position: top center;
+        background-repeat: no-repeat;
+ 
+        margin:0;
+        padding: 0;
+ 
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+}
+ 
+/*
+This next definition doesn't allow the background to get any smaller
+than a predefined size (640x426px in this case). Change the values
+here to match your background image size. The configuration in the
+flexi-background javascript file should also match these values.
+*/
+ 
+@@media only all and (max-width: 640px) and (max-height: 426px) {
+body {
+background-size: 640px 426px;
+-moz-background-size: 640px 426px;
+-webkit-background-size: 640px 426px;
+}
+}
+ 
+/*
+The next 2 definitions are for support in iOS devices.
+Since they don't recoginze the 'cover' keyword for background-size
+we need to simulate it with percentages and orientation
+*/
+ 
+@@media only screen and (orientation: portrait) and (device-width: 320px), (device-width: 768px) {
+body {
+-webkit-background-size: auto 100%;
+}
+}
+ 
+@@media only screen and (orientation: landscape) and (device-width: 320px), (device-width: 768px) {
+body {
+-webkit-background-size: 100% auto;
+}
+}
+    .diseño {
+        color: #fff;
+        text-shadow: 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000;
+    }
+</style>
+<div class="diseño">
+    
+   
+</div>
+<div class="diseño">
+    <fieldset style="margin-top: 25px;margin-bottom: 25px;">
+    <h2>Panel Administrativo</h2>
+    <hr />
+    <table>
+        <tr>
+            <td>Categoria</td>
+            <td>@Html.DropDownList("programa", new SelectList(ViewBag.programas, "Id", "nombre"))</td>
+            <td>
+                <button class="btn btn-primary" onclick="mostrarPanel();">Buscar</button>
+                <script>
+                    function mostrarPanel() {
+                        $("#panelCinta").slideDown('slow');
+                    }
+                </script>
+
+            </td>
+        </tr>
+    </table>
+</fieldset>
+</div>
+<div id="panelCinta" style="display:none;background:#D6D6D6;padding: 5px;-webkit-border-radius: 20px;
+     -moz-border-radius: 20px;border-radius: 20px;border: 2px dotted #408140;">
+    <h2>Detalle de los viajes</h2><hr/>
+    <div style="margin-bottom: 25px;">
+</div>
+    
+    <!--====================================================================================-->
+
+    <!--====================================================================================-->
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+
+                <th>Pais</th>
+                <th>Total inscrito</th>
+                <th>Fecha termino<br />inscripcion</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+           @foreach (var persona in ViewBag.personas) { 
+         
+         <tr>
+             <td>
+                  @persona.id
+
+             </td>
+             <td>
+                 @persona.nombre_usuario
+             </td>
+             <td>
+                 @persona.password
+             </td>
+             <td>
+              
+             </td>
+         </tr>
+         }
+              
+    </table>
+</div>

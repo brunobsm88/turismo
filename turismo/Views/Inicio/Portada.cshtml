@@ -1,0 +1,146 @@
+﻿@{
+    ViewBag.Title = "Portada";
+}
+ 
+<div class="estilo">
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        //código a ejecutar cuando el DOM está listo para recibir instrucciones.
+        setInterval("cambiarImg()", 5000);
+    });
+    function cambiarImg() {
+        var fotos = Array();
+        fotos[0] = "1.jpg";
+        fotos[1] = "2.jpg";
+        fotos[2] = "3.jpg";
+        fotos[3] = "4.jpg";
+        random = Math.floor(Math.random() * fotos.length);
+        foto_actual = fotos[random];
+        url = 'http://@HttpContext.Current.Request.Url.Authority';
+        console.log(url);
+        console.log("foto = " + foto_actual);
+        $(".featured").css("background-image", "url(" + url + "/Content/assets/img/baner/" + foto_actual + ")");
+    }
+</script>
+
+<div class="featured" >
+    <div class="featured-content">
+        <h1>Busca gente cerca de ti para viajar</h1>
+        <br />
+        <h4>Conoce el mundo y a otros como tú!</h4>
+    </div>
+</div>
+
+
+<div id="col1" class="">
+    <h2>Iniciar sesión</h2>
+      <input placeholder="john.doe@example.net" />
+      <br />
+     <input placeholder="Contraseña" />
+     <br />
+    <div class="btn-group">
+      @Html.ActionLink("Olvido su contraseña", "recuperarContraseña", "Registro", 
+                 null, new { @class = "btn  btn-inverse", style = "margin-left:10px;" })
+      @Html.ActionLink("Entrar", "categoria", "Viajes", null, new { @class = "btn btn-inverse", style = "margin-left:10px;" })
+    </div>
+</div>
+<div id="col2" >
+    <h2>¿Eres nuevo?</h2>
+    <table>
+        <tr>
+            <td>Entra como Visita o registrate en 3 sencillos pasos</td>
+        </tr>
+        <tr style="text-align:center;">
+            
+            <td>@Html.ActionLink("Visitas", "Categoria", "Viajes", 
+                 null, new { @class = "btn btn-large btn-inverse", style = "margin-left:10px;" })
+                 @Html.ActionLink("Registrarse", "nuevoRegistro", "Registro", 
+                 null, new { @class = "btn btn-large btn-inverse", style = "margin-left:10px;" })
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<style>
+   body {
+        
+        background-attachment: fixed;
+        background-image: url("Content/assets/img/fondos/fondo_registro.jpg");
+        background-position: top center;
+        background-repeat: no-repeat;
+ 
+        margin:0;
+        padding: 0;
+ 
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+}
+ 
+/*
+This next definition doesn't allow the background to get any smaller
+than a predefined size (640x426px in this case). Change the values
+here to match your background image size. The configuration in the
+flexi-background javascript file should also match these values.
+*/
+ 
+@@media only all and (max-width: 640px) and (max-height: 426px) {
+body {
+background-size: 640px 426px;
+-moz-background-size: 640px 426px;
+-webkit-background-size: 640px 426px;
+}
+}
+ 
+/*
+The next 2 definitions are for support in iOS devices.
+Since they don't recoginze the 'cover' keyword for background-size
+we need to simulate it with percentages and orientation
+*/
+ 
+@@media only screen and (orientation: portrait) and (device-width: 320px), (device-width: 768px) {
+body {
+-webkit-background-size: auto 100%;
+}
+}
+ 
+@@media only screen and (orientation: landscape) and (device-width: 320px), (device-width: 768px) {
+body {
+-webkit-background-size: 100% auto;
+}
+}
+    center {
+        color:#fcf000; text-shadow: 0 0 0.2em #000, 0 0 0.2em #000,
+               0 0 0.2em #000
+        
+ 
+        
+    }
+    .well {
+        color:#000;
+        text-shadow:none;
+        height:250px;
+        word-break:keep-all;
+        overflow-x:hidden;
+        overflow-y: auto;
+        text-align:left;
+    }
+    .estilo {
+        color:#fff;
+        margin:-30px 0px;
+    }
+    .featured {
+        text-shadow: 0 0 0.3em #bab5b5, 0 0 0.3em #bab5b5, 0 0 0.3em #bab5b5;
+    }
+    #col1 {
+        text-shadow: 0 0 0.3em #000, 0 0 0.3em #000, 0 0 0.3em #000;
+    }
+    #col2 {
+        text-shadow: 0 0 0.3em #000, 0 0 0.3em #000, 0 0 0.3em #000;
+    }
+    .link {
+         text-shadow:none;
+    }
+</style>
+</div>

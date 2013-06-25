@@ -1,0 +1,34 @@
+﻿<!-- navbar -->
+	<div id="topnav" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				
+				<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+      
+				<!-- Collapse - Everything you want hidden at 940px or less, place within here -->
+      			<div class="nav-collapse">
+					<!-- Main nav -->
+					<ul  class="nav">
+						<li class="active">@Html.ActionLink("Inicio","Portada","Inicio")</li>
+                                            <!--(nombre, metodo, controlador) -->
+						<li>@Html.ActionLink("Ver plantilla","Plantilla","Inicio")</li>
+						<li>@Html.ActionLink("Mi Perfil","Perfil","Perfil")</li>
+                        <li>@Html.ActionLink("Categoria de viajes","Categoria","Viajes")</li>
+                        <li>@Html.ActionLink("Cerrar sesión","","")</li>
+                        <li>@Html.ActionLink("Panel Administrativo","panelAdministrativo","AdministrarRol")</li>
+
+						<li><a href="#contact-section">Contacto</a></li>
+					</ul><!-- ENDS main nav -->
+				
+			
+				
+				</div><!-- ENDS Collapse -->
+				
+			</div>
+		</div>
+	</div><!-- ENDS navbar -->

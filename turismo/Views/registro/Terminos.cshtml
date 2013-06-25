@@ -1,0 +1,135 @@
+﻿@{
+    ViewBag.Title = "Terminos";
+}
+@ViewBag.ids
+<style>
+    body {
+        background-attachment: fixed;
+        background-color: #333;
+        background-image: url(/Content/assets/img/fondos/fondo_registro.jpg);
+        background-position: top center;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+    }
+
+    /*
+This next definition doesn't allow the background to get any smaller
+than a predefined size (640x426px in this case). Change the values
+here to match your background image size. The configuration in the
+flexi-background javascript file should also match these values.
+*/
+
+    @@media only all and (max-width: 640px) and (max-height: 426px) {
+        body {
+            background-size: 640px 426px;
+            -moz-background-size: 640px 426px;
+            -webkit-background-size: 640px 426px;
+        }
+    }
+
+    /*
+The next 2 definitions are for support in iOS devices.
+Since they don't recoginze the 'cover' keyword for background-size
+we need to simulate it with percentages and orientation
+*/
+
+    @@media only screen and (orientation: portrait) and (device-width: 320px), (device-width: 768px) {
+        body {
+            -webkit-background-size: auto 100%;
+        }
+    }
+
+    @@media only screen and (orientation: landscape) and (device-width: 320px), (device-width: 768px) {
+        body {
+            -webkit-background-size: 100% auto;
+        }
+    }
+
+    center {
+        color: #fff;
+        text-shadow: 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000;
+    }
+
+    .well {
+        color: #000;
+        text-shadow: none;
+        height: 250px;
+        font-size: 11pt;
+    }
+
+    .toc {
+        height: 225px;
+        width: 100%;
+        word-break: keep-all;
+        overflow-x: hidden;
+        overflow-y: auto;
+        text-align: left;
+        font-family: "Courier New", Courier, monospace;
+    }
+
+    .long-question {
+        width: 100%;
+        height: 25px;
+        margin: 0;
+        color: #fff;
+        padding: 3px;
+        text-shadow: none;
+        text-align: center;
+        background: rgb(243,197,189); /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(243,197,189,1) 0%, rgba(232,108,87,1) 50%, rgba(234,40,3,1) 51%, rgba(255,102,0,1) 75%, rgba(199,34,0,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(243,197,189,1)), color-stop(50%,rgba(232,108,87,1)), color-stop(51%,rgba(234,40,3,1)), color-stop(75%,rgba(255,102,0,1)), color-stop(100%,rgba(199,34,0,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(243,197,189,1) 0%,rgba(232,108,87,1) 50%,rgba(234,40,3,1) 51%,rgba(255,102,0,1) 75%,rgba(199,34,0,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(243,197,189,1) 0%,rgba(232,108,87,1) 50%,rgba(234,40,3,1) 51%,rgba(255,102,0,1) 75%,rgba(199,34,0,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, rgba(243,197,189,1) 0%,rgba(232,108,87,1) 50%,rgba(234,40,3,1) 51%,rgba(255,102,0,1) 75%,rgba(199,34,0,1) 100%); /* IE10+ */
+        background: linear-gradient(to bottom, rgba(243,197,189,1) 0%,rgba(232,108,87,1) 50%,rgba(234,40,3,1) 51%,rgba(255,102,0,1) 75%,rgba(199,34,0,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3c5bd', endColorstr='#c72200',GradientType=0 ); /* IE6-9 */
+    }
+</style>
+@using (Html.BeginForm("ConfirmacionCorreo","Registro"))
+{
+    <center>
+    <h2>Terminos y Condiciones</h2>
+    <div class="well">
+        <div class="toc">
+            Prohibición de uso con fines ilícitos o prohibidos: Usted acepta que no usará los Sitios web ni los Materiales con fines ilícitos o prohibidos por estos Términos y condiciones de uso. Usted no puede:
+            <ol>
+            <li>cargar, publicar, enviar mensajes de correo electrónico, transmitir o de otro modo proporcionar contenido ilícito, nocivo, amenazante, abusivo, hostil, ultrajante, difamatorio, vulgar, obsceno, injurioso, que invada la privacidad de un tercero, que promueva el odio o la xenofobia o que de otra manera sea inaceptable;</li>
+            <li>utilizar los Sitios web, Materiales, servicios o actividades para "asediar" o de otra manera acosar o molestar a otra persona;</li>
+            <li>hacerse pasar por una persona física o jurídica, como por ejemplo un funcionario de Intel, el coordinador de un foro, un guía o anfitrión, realizar declaraciones falsas o de otro modo erróneas de su vinculación con una persona física o jurídica o recopilar o almacenar datos personales de otros usuarios en relación con la conducta y las actividades prohibidas;</li>
+            <li>falsificar encabezados o manipular identificadores de otro modo a fin de ocultar el origen de los contenidos transmitidos por los Sitios web o Materiales;</li>
+            <li>cargar, publicar, enviar por correo electrónico, transmitir o proporcionar de otro modo cualquier contenido respecto del cual no tenga derecho a transmitir en virtud de la ley o de relaciones contractuales o de confianza (por ejemplo, información privilegiada, información registrada y confidencial obtenida o revelada en ocasión de relaciones laborales o protegida por convenios de no divulgación);</li>
+            <li>cargar, publicar, enviar por correo electrónico, transmitir o proporcionar de otro modo cualquier contenido que infrinja derechos de patente, marca comercial, secreto comercial, derechos de autor u otros derechos de propiedad intelectual (los "Derechos") de cualquier parte;</li>
+            <li>cargar, publicar, enviar por correo electrónico, transmitir o proporcionar de otro modo anuncios publicitarios no solicitados o no autorizados, material promocional, "correo basura", "correo no solicitado", "cartas en cadena", "esquemas de pirámide" o cualquier otro tipo de oferta no solicitada;</li>
+            <li>cargar, publicar, enviar por correo electrónico, transmitir o proporcionar de otro modo materiales que contengan virus informáticos o cualquier otro código informático, archivos o programas diseñados para interrumpir, destruir o limitar la funcionalidad del software, hardware o de equipos de telecomunicaciones;</li>
+            <li>no podrá utilizar el Sitio web ni los Materiales de una manera que pudiera dañar, deshabilitar, recargar o alterar los servidores de Intel o las conexiones de redes, ignorar requisitos, procedimientos, políticas o normas de redes conectadas al Sitio web o los Materiales o que pudieran interferir con el uso y goce de los Sitios web o Materiales por parte de cualquier tercero;</li>
+            <li>no podrá tratar de obtener acceso no autorizado a los Sitios web o Materiales, otras cuentas, sistemas informáticos o redes conectadas a los servidores, a través de ataques propios de piratas informáticos, el descifrado de contraseñas o cualquier otro método ni obtener ni tratar de obtener materiales o información con cualquier medio que no se ofrece intencionalmente a través de los Sitios web o Materiales;</li>
+            <li>infringir de manera intencional o no las leyes locales, estatales, nacionales o internacionales aplicables.</li>
+            </ol>
+        </div>
+        <div class="long-question">
+            
+          <script>
+              $("form").submit(function () {
+                  var seleccionado = $(".ck").is(":checked");
+                  if (seleccionado == true) {
+                      return true;
+                  }
+                  else {
+                      alert("acepte las condiciones de uso");
+                      return false;
+                  }
+                      
+              });
+           </script>
+                <input type="checkbox"  class="ck"/>
+
+            Acepto las condiciones de uso.
+        </div>
+    </div>    
+    <input type="submit" value="Continuar" class="btn btn-large btn-inverse" style = "margin-left:10px;" />
+</center>
+}

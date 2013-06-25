@@ -1,0 +1,158 @@
+﻿<h1>Botones</h1>
+
+<button class="btn btn-primary">class="btn btn-primary"</button>
+<button class="btn btn-warning">class="btn btn-warning"</button>
+<button class="btn btn-success">class="btn btn-success"</button>
+<button class="btn btn-danger">class="btn btn-danger"</button>
+<button class="btn btn-info">class="btn btn-info"</button>
+<button class="btn btn-inverse">class="btn btn-inverse"</button>
+
+
+
+<h1>Links</h1>
+<pre>
+<xmp class="prettyprint" id="htmlXmp">
+        @@Html.ActionLink("texto","metodo","controller")
+        class="no-mobile" ---> escondera todo  debajo de 800px de resolucion
+        class="link" das color azul a todos los link
+        class="tabla1" --- es una diseño de tabla personalizado
+</xmp>   
+</pre>
+
+
+
+
+<h1>Vista parcial</h1>
+<p>Esto sirve para cargar una vista dentro de otra</p>
+<pre>
+<xmp class="prettyprint" id="htmlXmp">
+     @@Html.Partial("Nombre de la vista")
+</xmp>  
+</pre>
+
+
+
+
+<h1>Formularios</h1>
+<p>Ejemplo</p>
+<pre>
+   <xmp class="prettyprint" id="htmlXmp">
+    Un menu lista
+      esto va en controller: ViewBag.Paises = db.Pais.ToList(); --->donde db.pais (Pais es el nombre de la tabla de base de datos y paises varieble cualquiera)
+      esto va en la vista: @@Html.DropDownList("Pais", new SelectList(ViewBag.Paises, "Id", "Nombre")); 
+       ---> (id= Posicion base datos,  Nombre =Nombre que va tomar)
+
+
+    </xmp>  
+</pre>
+
+
+
+
+<h1>Ayuda codigo html</h1> 
+<p>codigo basicos</p>
+<pre>
+   <xmp class="prettyprint" id="htmlXmp">
+       <hr size=5> hr= linea orizontal, 5 = grosor o tamaño
+       <title></title> titulo de la paguina web
+       <h1></h1> tamaño de letra 1-6 funciona como titulo
+       <br />  salto de linea
+       <p></p> Escribir parrafos
+       <blockquote></blockquote> Indica que el párrafo que encierra es un texto parafraseado
+       <address>... </address> incluir información sobre el autor, correo, por lo general al final de la página
+       align="" -->alineaciones ya sea center, left, right.
+       <img src="nombre de a imgen.jpeg"> Para agregar una imagen
+       <a href="dirección_URL"> Texto que será visible (hipertexto)</a>
+       <a href="#nombreAncla">holi</a> ------ <a name="nombreAncla">Comienzo</a>  Creas un anclas dentro de la paguina web
+       <B>..</B> letra negra
+       <I></I>Texto cursiva
+       <STRIKE></STRIKE> Tachado
+       normal,<BIG>este es grande<BIG>y este es mayor</BIG></BIG>
+       Esto es texto normal,<SMALL>este es pequeño<SMALL>y este esmenor<SMALL></SMALL>
+       Subíndices y superíndicesEl 1<SUP>er</SUP>componente químico que estudiamos fue el agua o H<SUB>2</SUB>0.
+       Subrayado <U>15 de Junio</U>
+       <STRONG></STRONG> letra oscura pero solo dentro del strong, como para destacar algo
+       <EM> Noah Gordon</EM>.letra cursiva tipo logic
+       <CODE>#include "stdio2.h"</CODE>
+       <VAR>...< /VAR>:
+       <CITE>...< /CITE>
+       <FONT SIZE="+3"></FONT> Tamaño del texto del 1 al 7
+       <FONT COLOR="#RRGGBB"></FONT> poner letra a color 
+       <pre></pre> esto mantiene saltos de linea
+       <UL><LI>Fútbol<Li>basquetbol</UL> --> Lista no ordenada
+       <OL>...</OL> --> Lista no ordenada
+       <DL>...</DL > -->Usado para listas de definiciones o de descripciones, No se usa la etiqueta <LI>
+
+           Listas de glosario (cont.)
+       <DL>
+         <DT>titulo 
+            <DD>descripcion
+         <DT>titulo2
+           <dd>Descripcion
+       </DL>
+
+           directorios y menus
+       <MENU>
+           <LI>Canción 1: Tranquilo majete
+           <LI>Canción 2: Lluvia en soledad
+       </MENU>
+       <DIR>
+            <LI>Juegos
+            <LI>Gráficos
+       </DIR>
+
+           Comentario USENLO
+           <!--Por favor úsenlos-->
+           <!--Por favor úsenlos!!!-->
+</pre> 
+   </xmp>
+   
+<h1>Alineaciones fotos y texto</h1>
+<XMP>
+    <pre>
+        TEXT Sirve para controlar el color que tendrá el texto normal de la página, es decir todo aquel
+que no sea un enlace hipertexto. Su valor por defecto es negro.
+        LINK Permite cambiar el color con el que son mostrados los enlaces hipertexto o links de la
+página. Su valor por defecto es azul.
+        VLINK Permite cambiar el color por defecto de los links visitados (Visited link). Los links visitados
+de una página son aquellos que ya hemos seleccionado alguna vez. El valor por defecto de
+estos enlaces es morado.
+        ALINK Sirve para controlar el color de los enlaces activos (Active LINK). El significado de enlace
+activo varía en función del navegador.
+        EJEMPLO
+<body bgcolor="#000000" text="#FFFFFF“ link="#00FF00" vlink="#008080" alink="#FF0000">
+
+    <body background = "images.jpg“> ---> IMAGEN DE FONDO
+
+
+ALINEACIONES  IMAGENES
+       ALIGN=TOP ---> Alinea la parte superior
+       ALIGN=MIDDLE ---> Alinea el centrO
+       ALIGN=BOTTOM ---> Alinea la parte inferior
+
+ALINEACIONES DE TEXTO
+        ALIGN=LEFT --->  Izquierda,
+        ALIGN=RIGHT ---> Derecha
+
+Arreglo dentro de una tabla
+        valign="left"
+        valign="top"
+        valign="bottom" 
+     
+
+        vspace y hspace
+    Controlan el tamaño de los márgenes vertical Y horizontal entre a foto y texto
+    <img align=left vspace=35 hspace=35>
+
+         border=""--> BORDER
+        Modificando el tamaño de las imágenes  <IMG SRC="imagen.gif" WIDTH=250 HEIGHT=250>
+
+
+        El atributo ALT, de la etiqueta IMG, permite especificar un texto alternativo
+
+        Refresca la paguina y la redirige en 5 seg ( se puede modificar)
+        <header><meta http-­‐equiv="refresh"! content="5;url='http://www.google.com/'"/></header>
+        </XMP>
+         </pre>
+
+

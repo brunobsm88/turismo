@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="turismo_uvmModel.Store" Alias="Self" Provider="Devart.Data.MySql" ProviderManifestToken="MySQL" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="turismo_uvmModelStoreContainer">
+          <EntitySet Name="inscripcion" EntityType="turismo_uvmModel.Store.inscripcion" store:Type="Tables" Schema="turismo_uvm" />
+          <EntitySet Name="pais" EntityType="turismo_uvmModel.Store.pais" store:Type="Tables" Schema="turismo_uvm" />
+          <EntitySet Name="persona" EntityType="turismo_uvmModel.Store.persona" store:Type="Tables" Schema="turismo_uvm" />
+          <EntitySet Name="programa" EntityType="turismo_uvmModel.Store.programa" store:Type="Tables" Schema="turismo_uvm" />
+          <EntitySet Name="rol" EntityType="turismo_uvmModel.Store.rol" store:Type="Tables" Schema="turismo_uvm" />
+          <EntitySet Name="suscripcion" EntityType="turismo_uvmModel.Store.suscripcion" store:Type="Tables" Schema="turismo_uvm" />
+          <EntitySet Name="viaje" EntityType="turismo_uvmModel.Store.viaje" store:Type="Tables" Schema="turismo_uvm" />
+          <AssociationSet Name="inscripcion_ibfk_1" Association="turismo_uvmModel.Store.inscripcion_ibfk_1">
+            <End Role="viaje" EntitySet="viaje" />
+            <End Role="inscripcion" EntitySet="inscripcion" />
+          </AssociationSet>
+          <AssociationSet Name="inscripcion_ibfk_2" Association="turismo_uvmModel.Store.inscripcion_ibfk_2">
+            <End Role="persona" EntitySet="persona" />
+            <End Role="inscripcion" EntitySet="inscripcion" />
+          </AssociationSet>
+          <AssociationSet Name="persona_ibfk_1" Association="turismo_uvmModel.Store.persona_ibfk_1">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="persona" EntitySet="persona" />
+          </AssociationSet>
+          <AssociationSet Name="suscripcion_ibfk_1" Association="turismo_uvmModel.Store.suscripcion_ibfk_1">
+            <End Role="persona" EntitySet="persona" />
+            <End Role="suscripcion" EntitySet="suscripcion" />
+          </AssociationSet>
+          <AssociationSet Name="suscripcion_ibfk_2" Association="turismo_uvmModel.Store.suscripcion_ibfk_2">
+            <End Role="programa" EntitySet="programa" />
+            <End Role="suscripcion" EntitySet="suscripcion" />
+          </AssociationSet>
+          <AssociationSet Name="viaje_ibfk_1" Association="turismo_uvmModel.Store.viaje_ibfk_1">
+            <End Role="programa" EntitySet="programa" />
+            <End Role="viaje" EntitySet="viaje" />
+          </AssociationSet>
+          <AssociationSet Name="viaje_ibfk_2" Association="turismo_uvmModel.Store.viaje_ibfk_2">
+            <End Role="pais" EntitySet="pais" />
+            <End Role="viaje" EntitySet="viaje" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="inscripcion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="persona_id" Type="int" Nullable="false" />
+          <Property Name="viaje_id" Type="int" Nullable="false" />
+          <Property Name="fecha_inscripcion" Type="date" Nullable="false" />
+          <Property Name="confirmado" Type="sbyte" Nullable="false" />
+          <Property Name="cantidad_pasajes" Type="int" />
+          <Property Name="monto" Type="int" />
+        </EntityType>
+        <EntityType Name="pais">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="persona">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="rol_id" Type="int" Nullable="false" />
+          <Property Name="nombre_usuario" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="password" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="email" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="token" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="programa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="descripcion" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="imagen" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="suscripcion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="persona_id" Type="int" Nullable="false" />
+          <Property Name="programa_id" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="viaje">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="programa_id" Type="int" Nullable="false" />
+          <Property Name="pais_id" Type="int" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="titulo" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="imagen" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <Association Name="inscripcion_ibfk_1">
+          <End Role="viaje" Type="turismo_uvmModel.Store.viaje" Multiplicity="1" />
+          <End Role="inscripcion" Type="turismo_uvmModel.Store.inscripcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="viaje">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inscripcion">
+              <PropertyRef Name="viaje_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="inscripcion_ibfk_2">
+          <End Role="persona" Type="turismo_uvmModel.Store.persona" Multiplicity="1" />
+          <End Role="inscripcion" Type="turismo_uvmModel.Store.inscripcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inscripcion">
+              <PropertyRef Name="persona_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="persona_ibfk_1">
+          <End Role="rol" Type="turismo_uvmModel.Store.rol" Multiplicity="1" />
+          <End Role="persona" Type="turismo_uvmModel.Store.persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="persona">
+              <PropertyRef Name="rol_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="suscripcion_ibfk_1">
+          <End Role="persona" Type="turismo_uvmModel.Store.persona" Multiplicity="1" />
+          <End Role="suscripcion" Type="turismo_uvmModel.Store.suscripcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="suscripcion">
+              <PropertyRef Name="persona_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="suscripcion_ibfk_2">
+          <End Role="programa" Type="turismo_uvmModel.Store.programa" Multiplicity="1" />
+          <End Role="suscripcion" Type="turismo_uvmModel.Store.suscripcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="programa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="suscripcion">
+              <PropertyRef Name="programa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="viaje_ibfk_1">
+          <End Role="programa" Type="turismo_uvmModel.Store.programa" Multiplicity="1" />
+          <End Role="viaje" Type="turismo_uvmModel.Store.viaje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="programa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="viaje">
+              <PropertyRef Name="programa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="viaje_ibfk_2">
+          <End Role="pais" Type="turismo_uvmModel.Store.pais" Multiplicity="1" />
+          <End Role="viaje" Type="turismo_uvmModel.Store.viaje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pais">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="viaje">
+              <PropertyRef Name="pais_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="turismo_uvmModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="turismo_uvmEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="inscripcion" EntityType="turismo_uvmModel.inscripcion" />
+          <EntitySet Name="pais" EntityType="turismo_uvmModel.pais" />
+          <EntitySet Name="persona" EntityType="turismo_uvmModel.persona" />
+          <EntitySet Name="programa" EntityType="turismo_uvmModel.programa" />
+          <EntitySet Name="rol" EntityType="turismo_uvmModel.rol" />
+          <EntitySet Name="suscripcion" EntityType="turismo_uvmModel.suscripcion" />
+          <EntitySet Name="viaje" EntityType="turismo_uvmModel.viaje" />
+          <AssociationSet Name="inscripcion_ibfk_1" Association="turismo_uvmModel.inscripcion_ibfk_1">
+            <End Role="viaje" EntitySet="viaje" />
+            <End Role="inscripcion" EntitySet="inscripcion" />
+          </AssociationSet>
+          <AssociationSet Name="inscripcion_ibfk_2" Association="turismo_uvmModel.inscripcion_ibfk_2">
+            <End Role="persona" EntitySet="persona" />
+            <End Role="inscripcion" EntitySet="inscripcion" />
+          </AssociationSet>
+          <AssociationSet Name="viaje_ibfk_2" Association="turismo_uvmModel.viaje_ibfk_2">
+            <End Role="pais" EntitySet="pais" />
+            <End Role="viaje" EntitySet="viaje" />
+          </AssociationSet>
+          <AssociationSet Name="persona_ibfk_1" Association="turismo_uvmModel.persona_ibfk_1">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="persona" EntitySet="persona" />
+          </AssociationSet>
+          <AssociationSet Name="suscripcion_ibfk_1" Association="turismo_uvmModel.suscripcion_ibfk_1">
+            <End Role="persona" EntitySet="persona" />
+            <End Role="suscripcion" EntitySet="suscripcion" />
+          </AssociationSet>
+          <AssociationSet Name="suscripcion_ibfk_2" Association="turismo_uvmModel.suscripcion_ibfk_2">
+            <End Role="programa" EntitySet="programa" />
+            <End Role="suscripcion" EntitySet="suscripcion" />
+          </AssociationSet>
+          <AssociationSet Name="viaje_ibfk_1" Association="turismo_uvmModel.viaje_ibfk_1">
+            <End Role="programa" EntitySet="programa" />
+            <End Role="viaje" EntitySet="viaje" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="inscripcion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="persona_id" Type="Int32" Nullable="false" />
+          <Property Name="viaje_id" Type="Int32" Nullable="false" />
+          <Property Name="fecha_inscripcion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="confirmado" Type="SByte" Nullable="false" />
+          <Property Name="cantidad_pasajes" Type="Int32" />
+          <Property Name="monto" Type="Int32" />
+          <NavigationProperty Name="viaje" Relationship="turismo_uvmModel.inscripcion_ibfk_1" FromRole="inscripcion" ToRole="viaje" />
+          <NavigationProperty Name="persona" Relationship="turismo_uvmModel.inscripcion_ibfk_2" FromRole="inscripcion" ToRole="persona" />
+        </EntityType>
+        <EntityType Name="pais">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="viaje" Relationship="turismo_uvmModel.viaje_ibfk_2" FromRole="pais" ToRole="viaje" />
+        </EntityType>
+        <EntityType Name="persona">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="rol_id" Type="Int32" Nullable="false" />
+          <Property Name="nombre_usuario" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="inscripcion" Relationship="turismo_uvmModel.inscripcion_ibfk_2" FromRole="persona" ToRole="inscripcion" />
+          <NavigationProperty Name="rol" Relationship="turismo_uvmModel.persona_ibfk_1" FromRole="persona" ToRole="rol" />
+          <NavigationProperty Name="suscripcion" Relationship="turismo_uvmModel.suscripcion_ibfk_1" FromRole="persona" ToRole="suscripcion" />
+          <Property Type="String" Name="token" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="programa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="imagen" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="suscripcion" Relationship="turismo_uvmModel.suscripcion_ibfk_2" FromRole="programa" ToRole="suscripcion" />
+          <NavigationProperty Name="viaje" Relationship="turismo_uvmModel.viaje_ibfk_1" FromRole="programa" ToRole="viaje" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="persona" Relationship="turismo_uvmModel.persona_ibfk_1" FromRole="rol" ToRole="persona" />
+        </EntityType>
+        <EntityType Name="suscripcion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="persona_id" Type="Int32" Nullable="false" />
+          <Property Name="programa_id" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="persona" Relationship="turismo_uvmModel.suscripcion_ibfk_1" FromRole="suscripcion" ToRole="persona" />
+          <NavigationProperty Name="programa" Relationship="turismo_uvmModel.suscripcion_ibfk_2" FromRole="suscripcion" ToRole="programa" />
+        </EntityType>
+        <EntityType Name="viaje">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="programa_id" Type="Int32" Nullable="false" />
+          <Property Name="pais_id" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="titulo" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="imagen" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="inscripcion" Relationship="turismo_uvmModel.inscripcion_ibfk_1" FromRole="viaje" ToRole="inscripcion" />
+          <NavigationProperty Name="pais" Relationship="turismo_uvmModel.viaje_ibfk_2" FromRole="viaje" ToRole="pais" />
+          <NavigationProperty Name="programa" Relationship="turismo_uvmModel.viaje_ibfk_1" FromRole="viaje" ToRole="programa" />
+        </EntityType>
+        <Association Name="inscripcion_ibfk_1">
+          <End Role="viaje" Type="turismo_uvmModel.viaje" Multiplicity="1" />
+          <End Role="inscripcion" Type="turismo_uvmModel.inscripcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="viaje">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inscripcion">
+              <PropertyRef Name="viaje_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="inscripcion_ibfk_2">
+          <End Role="persona" Type="turismo_uvmModel.persona" Multiplicity="1" />
+          <End Role="inscripcion" Type="turismo_uvmModel.inscripcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inscripcion">
+              <PropertyRef Name="persona_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="viaje_ibfk_2">
+          <End Role="pais" Type="turismo_uvmModel.pais" Multiplicity="1" />
+          <End Role="viaje" Type="turismo_uvmModel.viaje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pais">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="viaje">
+              <PropertyRef Name="pais_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="persona_ibfk_1">
+          <End Role="rol" Type="turismo_uvmModel.rol" Multiplicity="1" />
+          <End Role="persona" Type="turismo_uvmModel.persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="persona">
+              <PropertyRef Name="rol_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="suscripcion_ibfk_1">
+          <End Role="persona" Type="turismo_uvmModel.persona" Multiplicity="1" />
+          <End Role="suscripcion" Type="turismo_uvmModel.suscripcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="suscripcion">
+              <PropertyRef Name="persona_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="suscripcion_ibfk_2">
+          <End Role="programa" Type="turismo_uvmModel.programa" Multiplicity="1" />
+          <End Role="suscripcion" Type="turismo_uvmModel.suscripcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="programa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="suscripcion">
+              <PropertyRef Name="programa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="viaje_ibfk_1">
+          <End Role="programa" Type="turismo_uvmModel.programa" Multiplicity="1" />
+          <End Role="viaje" Type="turismo_uvmModel.viaje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="programa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="viaje">
+              <PropertyRef Name="programa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="turismo_uvmModelStoreContainer" CdmEntityContainer="turismo_uvmEntities">
+          <EntitySetMapping Name="inscripcion">
+            <EntityTypeMapping TypeName="turismo_uvmModel.inscripcion">
+              <MappingFragment StoreEntitySet="inscripcion">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="persona_id" ColumnName="persona_id" />
+                <ScalarProperty Name="viaje_id" ColumnName="viaje_id" />
+                <ScalarProperty Name="fecha_inscripcion" ColumnName="fecha_inscripcion" />
+                <ScalarProperty Name="confirmado" ColumnName="confirmado" />
+                <ScalarProperty Name="cantidad_pasajes" ColumnName="cantidad_pasajes" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pais">
+            <EntityTypeMapping TypeName="turismo_uvmModel.pais">
+              <MappingFragment StoreEntitySet="pais">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="persona">
+            <EntityTypeMapping TypeName="turismo_uvmModel.persona">
+              <MappingFragment StoreEntitySet="persona">
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="rol_id" ColumnName="rol_id" />
+                <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="programa">
+            <EntityTypeMapping TypeName="turismo_uvmModel.programa">
+              <MappingFragment StoreEntitySet="programa">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rol">
+            <EntityTypeMapping TypeName="turismo_uvmModel.rol">
+              <MappingFragment StoreEntitySet="rol">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suscripcion">
+            <EntityTypeMapping TypeName="turismo_uvmModel.suscripcion">
+              <MappingFragment StoreEntitySet="suscripcion">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="persona_id" ColumnName="persona_id" />
+                <ScalarProperty Name="programa_id" ColumnName="programa_id" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viaje">
+            <EntityTypeMapping TypeName="turismo_uvmModel.viaje">
+              <MappingFragment StoreEntitySet="viaje">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="programa_id" ColumnName="programa_id" />
+                <ScalarProperty Name="pais_id" ColumnName="pais_id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

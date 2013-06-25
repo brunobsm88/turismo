@@ -1,0 +1,547 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ABC4847E-018B-4262-A62A-FB1A9F3FABE4}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>turismo</RootNamespace>
+    <AssemblyName>turismo</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Mvc.Mailer">
+      <HintPath>..\packages\MvcMailer3.3.1\lib\40\Mvc.Mailer.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\packages\MySql.Data.6.6.5\lib\net40\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity">
+      <HintPath>..\packages\MySQL.Data.Entities.6.5.4.0\lib\net40\MySql.Data.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web">
+      <HintPath>..\packages\MySql.Web.6.6.5\lib\net40\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.0.3.12153\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdministrarRolController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
+    <Compile Include="Controllers\InicioController.cs" />
+    <Compile Include="Controllers\MailersController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
+    <Compile Include="Controllers\RegistroController.cs" />
+    <Compile Include="Controllers\ViajesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\EmailFactory.cs" />
+    <Compile Include="Helpers\ViewHelper.cs" />
+    <Compile Include="inscripcion.cs">
+      <DependentUpon>TurismoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mailers\IUserMailer.cs" />
+    <Compile Include="Mailers\UserMailer.cs" />
+    <Compile Include="pais.cs">
+      <DependentUpon>TurismoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="persona.cs">
+      <DependentUpon>TurismoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="programa.cs">
+      <DependentUpon>TurismoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rol.cs">
+      <DependentUpon>TurismoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="suscripcion.cs">
+      <DependentUpon>TurismoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TurismoModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TurismoModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TurismoModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TurismoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TurismoModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TurismoModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="viaje.cs">
+      <DependentUpon>TurismoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AdministrarRol\AdministrarViewModel.cs" />
+    <Compile Include="ViewModel\Registro\RegistroViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\assets\css\bootstrap-responsive.css" />
+    <Content Include="Content\assets\css\bootstrap.css" />
+    <Content Include="Content\assets\css\brickSlide.css" />
+    <Content Include="Content\assets\css\reset.css" />
+    <Content Include="Content\assets\css\responsive.css" />
+    <Content Include="Content\assets\css\style.css" />
+    <Content Include="Content\assets\img\baner\1.jpg" />
+    <Content Include="Content\assets\img\baner\2.jpg" />
+    <Content Include="Content\assets\img\baner\3.jpg" />
+    <Content Include="Content\assets\img\baner\4.jpg" />
+    <Content Include="Content\assets\img\Categoria\america_latina.jpg" />
+    <Content Include="Content\assets\img\Categoria\america_latina.png" />
+    <Content Include="Content\assets\img\dummies\01.jpg" />
+    <Content Include="Content\assets\img\dummies\02.jpg" />
+    <Content Include="Content\assets\img\dummies\03.jpg" />
+    <Content Include="Content\assets\img\dummies\04.jpg" />
+    <Content Include="Content\assets\img\dummies\05.jpg" />
+    <Content Include="Content\assets\img\dummies\06.jpg" />
+    <Content Include="Content\assets\img\dummies\07.jpg" />
+    <Content Include="Content\assets\img\dummies\b-01.jpg" />
+    <Content Include="Content\assets\img\dummies\b-02.jpg" />
+    <Content Include="Content\assets\img\dummies\b-03.jpg" />
+    <Content Include="Content\assets\img\dummies\b-04.jpg" />
+    <Content Include="Content\assets\img\dummies\b-05.jpg" />
+    <Content Include="Content\assets\img\dummies\b-06.jpg" />
+    <Content Include="Content\assets\img\dummies\b-07.jpg" />
+    <Content Include="Content\assets\img\fondos\fondo_perfil.jpg" />
+    <Content Include="Content\assets\img\fondos\fondo_registro.jpg" />
+    <Content Include="Content\assets\img\fondos\fondo_registro2.jpg" />
+    <Content Include="Content\assets\img\fondos\fondo_viajes.jpg" />
+    <Content Include="Content\assets\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\assets\img\glyphicons-halflings.png" />
+    <Content Include="Content\assets\img\icon-award.png" />
+    <Content Include="Content\assets\img\lghtmesh.png" />
+    <Content Include="Content\assets\img\paises\argentina.jpg" />
+    <Content Include="Content\assets\img\paises\venezuela.jpg" />
+    <Content Include="Content\assets\img\social-bg.gif" />
+    <Content Include="Content\assets\img\social-dribbble.png" />
+    <Content Include="Content\assets\img\social-facebook.png" />
+    <Content Include="Content\assets\img\social-forrst.png" />
+    <Content Include="Content\assets\img\social-myspace.png" />
+    <Content Include="Content\assets\img\social-tumblr.png" />
+    <Content Include="Content\assets\img\social-twitter.png" />
+    <Content Include="Content\assets\img\social-vimeo.png" />
+    <Content Include="Content\assets\img\social-youtube.png" />
+    <Content Include="Content\assets\img\tex2res4.png" />
+    <Content Include="Content\assets\js\bootstrap-collapse.js" />
+    <Content Include="Content\assets\js\bootstrap-dropdown.js" />
+    <Content Include="Content\assets\js\bootstrap-scrollspy.js" />
+    <Content Include="Content\assets\js\bootstrap-tab.js" />
+    <Content Include="Content\assets\js\custom.js" />
+    <Content Include="Content\assets\js\fancybox\blank.gif" />
+    <Content Include="Content\assets\js\fancybox\fancybox-x.png" />
+    <Content Include="Content\assets\js\fancybox\fancybox-y.png" />
+    <Content Include="Content\assets\js\fancybox\fancybox.png" />
+    <Content Include="Content\assets\js\fancybox\fancy_close.png" />
+    <Content Include="Content\assets\js\fancybox\fancy_loading.png" />
+    <Content Include="Content\assets\js\fancybox\fancy_nav_left.png" />
+    <Content Include="Content\assets\js\fancybox\fancy_nav_right.png" />
+    <Content Include="Content\assets\js\fancybox\fancy_shadow_e.png" />
+    <Content Include="Content\assets\js\fancybox\fancy_shadow_n.png" />
+    <Content Include="Content\assets\js\fancybox\fancy_shadow_ne.png" />
+    <Content Include="Content\assets\js\fancybox\fancy_shadow_nw.png" />
+    <Content Include="Content\assets\js\fancybox\fancy_shadow_s.png" />
+    <Content Include="Content\assets\js\fancybox\fancy_shadow_se.png" />
+    <Content Include="Content\assets\js\fancybox\fancy_shadow_sw.png" />
+    <Content Include="Content\assets\js\fancybox\fancy_shadow_w.png" />
+    <Content Include="Content\assets\js\fancybox\fancy_title_left.png" />
+    <Content Include="Content\assets\js\fancybox\fancy_title_main.png" />
+    <Content Include="Content\assets\js\fancybox\fancy_title_over.png" />
+    <Content Include="Content\assets\js\fancybox\fancy_title_right.png" />
+    <Content Include="Content\assets\js\fancybox\jquery.easing-1.3.pack.js" />
+    <Content Include="Content\assets\js\fancybox\jquery.fancybox-1.3.4.css" />
+    <Content Include="Content\assets\js\fancybox\jquery.fancybox-1.3.4.js" />
+    <Content Include="Content\assets\js\fancybox\jquery.fancybox-1.3.4.pack.js" />
+    <Content Include="Content\assets\js\fancybox\jquery.mousewheel-3.0.4.pack.js" />
+    <Content Include="Content\assets\js\form-validation.js" />
+    <Content Include="Content\assets\js\jquery-1.7.1.min.js" />
+    <Content Include="Content\assets\js\jquery.masonry.min.js" />
+    <Content Include="Content\assets\js\modernizr-2.5.3.min.js" />
+    <Content Include="Content\assets\js\plugins.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\assets\.git\branches\" />
+    <Folder Include="Content\assets\.git\objects\info\" />
+    <Folder Include="Content\assets\.git\objects\pack\" />
+    <Folder Include="Content\assets\.git\refs\tags\" />
+    <Folder Include="Filters\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\assets\.git\COMMIT_EDITMSG" />
+    <Content Include="Content\assets\.git\config" />
+    <Content Include="Content\assets\.git\description" />
+    <Content Include="Content\assets\.git\HEAD" />
+    <Content Include="Content\assets\.git\hooks\applypatch-msg.sample" />
+    <Content Include="Content\assets\.git\hooks\commit-msg.sample" />
+    <Content Include="Content\assets\.git\hooks\post-update.sample" />
+    <Content Include="Content\assets\.git\hooks\pre-applypatch.sample" />
+    <Content Include="Content\assets\.git\hooks\pre-commit.sample" />
+    <Content Include="Content\assets\.git\hooks\pre-rebase.sample" />
+    <Content Include="Content\assets\.git\hooks\prepare-commit-msg.sample" />
+    <Content Include="Content\assets\.git\hooks\update.sample" />
+    <Content Include="Content\assets\.git\index" />
+    <Content Include="Content\assets\.git\info\exclude" />
+    <Content Include="Content\assets\.git\logs\HEAD" />
+    <Content Include="Content\assets\.git\logs\refs\heads\master" />
+    <Content Include="Content\assets\.git\objects\07\035307ad435f8f2f8eedf0bce50f7ec8a858c2" />
+    <Content Include="Content\assets\.git\objects\08\0ee60ab7126884f93b74047bc6922bff7c9ca2" />
+    <Content Include="Content\assets\.git\objects\0b\c6de916bbe58b1a145e84a84177b0f3855d871" />
+    <Content Include="Content\assets\.git\objects\13\73ed0838bc1be6841339fef703a07c1ee7267f" />
+    <Content Include="Content\assets\.git\objects\1a\13374d2d1dcf88c824f41a3f1270a2e3666424" />
+    <Content Include="Content\assets\.git\objects\25\03017960b3972499d3aa92f89953935ae40934" />
+    <Content Include="Content\assets\.git\objects\25\e73083caca313286f44ded1c134fabb5029406" />
+    <Content Include="Content\assets\.git\objects\27\fcdae8250b9cf4024a2149a2b872f4d2604714" />
+    <Content Include="Content\assets\.git\objects\2e\1aa6a0cd77e87e2e2e86e0013c5fe34fc5c503" />
+    <Content Include="Content\assets\.git\objects\2e\da0893649371f8d92b92976d8542cdd1b601ed" />
+    <Content Include="Content\assets\.git\objects\30\f881383ae3d3c78b2929d28e88b00caf6c01a1" />
+    <Content Include="Content\assets\.git\objects\33\760b0ec2b64a13e651cdee530a0721757d0cbe" />
+    <Content Include="Content\assets\.git\objects\35\b55f419d78b6e41c0b35316e9d4273c0cd7440" />
+    <Content Include="Content\assets\.git\objects\35\d42e808f0a8017b8d52a06be2f8fec0b466a66" />
+    <Content Include="Content\assets\.git\objects\3c\e3cbd7dad3076babfa796a94aa284e662a2dc0" />
+    <Content Include="Content\assets\.git\objects\40\a8957e493c9f09f71889edf290bcac47bb81f5" />
+    <Content Include="Content\assets\.git\objects\41\2066286aaaae3de19f2c7ae74ace1125e84a8c" />
+    <Content Include="Content\assets\.git\objects\41\28c3b89f4679069ebc178b3c4db3c48cb3ab27" />
+    <Content Include="Content\assets\.git\objects\45\7c5ce6a7e7005940f6e3b41dd9b32f305a6804" />
+    <Content Include="Content\assets\.git\objects\45\f870d0e827bfa48dda939154ea15eb3b28f9ef" />
+    <Content Include="Content\assets\.git\objects\49\5188af7faca02cfd553ebb7c809ee469cf1a8b" />
+    <Content Include="Content\assets\.git\objects\4a\779cf2505d5f815176ae4e8d7e8b9dfb96006f" />
+    <Content Include="Content\assets\.git\objects\4e\c0d298859a6e33a6cc40f7a502354b8cad5f76" />
+    <Content Include="Content\assets\.git\objects\50\08ddfcf53c02e82d7eee2e57c38e5672ef89f6" />
+    <Content Include="Content\assets\.git\objects\54\1e3ffd3e88224b34a4d2097c66a780e6060aeb" />
+    <Content Include="Content\assets\.git\objects\54\b61c5e9d00da2347da8847c8baaa079dd4f196" />
+    <Content Include="Content\assets\.git\objects\56\c4f129d495aa20e7db7121fae5a34486f9f5de" />
+    <Content Include="Content\assets\.git\objects\60\49223d1ec6af46e100499c01f6489c9e2c6240" />
+    <Content Include="Content\assets\.git\objects\65\e14f68fd83b87f75c22c0c074e7b20bf20a133" />
+    <Content Include="Content\assets\.git\objects\66\b377dedc4b61d4a6d27dc0e680d19607cfe9cd" />
+    <Content Include="Content\assets\.git\objects\69\aa10e233b039077e7dc600177ddb1eb46217e3" />
+    <Content Include="Content\assets\.git\objects\6d\53cb7fe554a98bea25314ccb3e3bd0bef9a979" />
+    <Content Include="Content\assets\.git\objects\6f\53d8f4a216da5873f40d49fddd167e5f4c8477" />
+    <Content Include="Content\assets\.git\objects\71\82cd938ae98e7e28c65a0bc55df576042ff9f5" />
+    <Content Include="Content\assets\.git\objects\79\286c922f3991ecf50720b7ab1840aeec0b3462" />
+    <Content Include="Content\assets\.git\objects\79\f6980a3ba5c43de120d963dbba2516b8f27ac7" />
+    <Content Include="Content\assets\.git\objects\7e\f399b9908976fc36f760fad7876a4d9c38e006" />
+    <Content Include="Content\assets\.git\objects\7f\3924269ffc06ff7be6d973e47e598d01cabc3c" />
+    <Content Include="Content\assets\.git\objects\80\44271f29b5d4e4471570e75cdce90bf9a1497c" />
+    <Content Include="Content\assets\.git\objects\86\155d8a0956b89cd40484360660b965e2d8248f" />
+    <Content Include="Content\assets\.git\objects\87\3294e969db9160f5ddd4e1ab498ff60b080e3f" />
+    <Content Include="Content\assets\.git\objects\88\6869be8749150e506e2c716f626b4759905719" />
+    <Content Include="Content\assets\.git\objects\8a\4e4a887f18384a204563c0048c9cd1328f7faa" />
+    <Content Include="Content\assets\.git\objects\90\28179e7bde19e3c0fdbf9f422c35c4a0d95034" />
+    <Content Include="Content\assets\.git\objects\92\d4445dfd0af414835467132cf50c7c38a303af" />
+    <Content Include="Content\assets\.git\objects\94\5bc02c5f25c2242d6c6c265e97373c32f861f0" />
+    <Content Include="Content\assets\.git\objects\9a\364468b7d4ecc1238f868f5241d672ca251a2c" />
+    <Content Include="Content\assets\.git\objects\9b\879eca86fd1567b3b5a8c3e93302d0fc3c0620" />
+    <Content Include="Content\assets\.git\objects\9f\9369922bd280d3fa144d2c518e6d18212584e0" />
+    <Content Include="Content\assets\.git\objects\a2\0760bfde58d1c92cee95116059fba03c68d689" />
+    <Content Include="Content\assets\.git\objects\a5\c7bc89187bf3834f666767a182d748cd728422" />
+    <Content Include="Content\assets\.git\objects\a7\33ab4a6871a4b5ad7125497376067121aa9a5a" />
+    <Content Include="Content\assets\.git\objects\a7\c74197b09720f390fa49609f1c677df8e6c2a1" />
+    <Content Include="Content\assets\.git\objects\b3\938f6714994ef4dbc2572f17bbac08346cb388" />
+    <Content Include="Content\assets\.git\objects\b4\51689fa7b57b7432820e4c06d0864c143c79ab" />
+    <Content Include="Content\assets\.git\objects\b8\1b387a2f893fc8f020a8668d8f90fee7e90a5d" />
+    <Content Include="Content\assets\.git\objects\be\77275376b7083d0df61b1ebe93a101ed52bebf" />
+    <Content Include="Content\assets\.git\objects\c2\130f8698f682d68b1550bffedecfe19eaa1a81" />
+    <Content Include="Content\assets\.git\objects\c7\15e09a095ac256906e1567b9e30634b4e16029" />
+    <Content Include="Content\assets\.git\objects\cb\4852448d10abf9d9aa542f483c47376269c14f" />
+    <Content Include="Content\assets\.git\objects\cb\66588e29c237d80f5a944c7f0d47bc97dd9a39" />
+    <Content Include="Content\assets\.git\objects\cc\f530edbeea40b3e3ff61450d1ee1178b24e027" />
+    <Content Include="Content\assets\.git\objects\cd\8344abb0f0f2a448d4dc6a599bb7849a52b9d1" />
+    <Content Include="Content\assets\.git\objects\cf\e26f002041509d7fd8bd265042e88df7bae89a" />
+    <Content Include="Content\assets\.git\objects\d6\8111aa107e13cd357131a1c4bfbe56e62ee2c4" />
+    <Content Include="Content\assets\.git\objects\d8\858bfb78efb8d7268736920efa1eae8873f89c" />
+    <Content Include="Content\assets\.git\objects\d8\bfcc19fb041215460ed0edd7e63b90beb867a7" />
+    <Content Include="Content\assets\.git\objects\d9\f458f4bb8770466e44ba97dd8fe1f2936090db" />
+    <Content Include="Content\assets\.git\objects\db\9ed2177b72f2df97c33fc5fd7c5ce89c17322c" />
+    <Content Include="Content\assets\.git\objects\dc\4a169933f3ab18a6675d5edecf011e6fbdbdb7" />
+    <Content Include="Content\assets\.git\objects\e3\6d9db2a7c6e570aec993d3665cbc13620115e2" />
+    <Content Include="Content\assets\.git\objects\e6\9de29bb2d1d6434b8b29ae775ad8c2e48c5391" />
+    <Content Include="Content\assets\.git\objects\e7\27e71fd55691a40b88f815d73aaac5391b39fb" />
+    <Content Include="Content\assets\.git\objects\ea\29f2f866e6ead18ed53339137530d1ee52cebb" />
+    <Content Include="Content\assets\.git\objects\ea\77c465824bae45a303e4dcbcb812cedbcf736c" />
+    <Content Include="Content\assets\.git\objects\eb\1db3663620dc386a78b7024e1201bd68058161" />
+    <Content Include="Content\assets\.git\objects\eb\aa6a4fd34e51575a01da366312c20618985cbc" />
+    <Content Include="Content\assets\.git\objects\ee\0233703da37c9cc42591620e0befa769cd6a2a" />
+    <Content Include="Content\assets\.git\objects\ee\e050c407c8981193a009cecf3b540f98a92dc0" />
+    <Content Include="Content\assets\.git\objects\f2\0efa8ae57352129ef96858068974f0a10b124c" />
+    <Content Include="Content\assets\.git\objects\f2\2c6a47a0e22e4db021676d9b46038b8ecf5753" />
+    <Content Include="Content\assets\.git\objects\f2\614ac6f6ddfa0de55c1008941329eda2f7d606" />
+    <Content Include="Content\assets\.git\objects\f2\cf3a16f9a630776c28fceddb98b1e3771f6434" />
+    <Content Include="Content\assets\.git\objects\f4\85ab0685bf518233c0c0c37ee29cbfcba1a6ca" />
+    <Content Include="Content\assets\.git\objects\f5\8397f6d6712402966ec716e3a3a1607b613bc6" />
+    <Content Include="Content\assets\.git\objects\f8\b0529d104227eb6d3a3b22dbca8dd0a21a6c74" />
+    <Content Include="Content\assets\.git\refs\heads\master" />
+    <Content Include="Content\assets\img\.gitignore" />
+    <Content Include="Content\assets\img\dummies\.DS_Store" />
+    <Content Include="Content\assets\js\fancybox\.DS_Store" />
+    <Content Include="Content\assets\less\reset.less" />
+    <Content Include="Content\assets\less\responsive.less" />
+    <Content Include="Content\assets\less\style.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inicio\Portada.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inicio\Plantilla.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\registro\nuevoRegistro.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\registro\Terminos.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\registro\confirmacionCorreo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\Turismo.pubxml" />
+    <Content Include="Views\registro\recuperarContraseña.cshtml" />
+    <Content Include="Views\Shared\Menu.cshtml" />
+    <Content Include="Views\registro\envioRecuperarContraseña.cshtml" />
+    <Content Include="Views\viajes\Categoria.cshtml" />
+    <Content Include="Views\Email\enviarCorreo.cshtml" />
+    <Content Include="Views\Perfil\Perfil.cshtml" />
+    <Content Include="Views\AdministrarRol\panelAdministrativo.cshtml" />
+    <Content Include="Views\viajes\listaViajes.cshtml" />
+    <Content Include="Views\viajes\lugar.cshtml" />
+    <Content Include="Views\viajes\caracteristicas.cshtml" />
+    <Content Include="Views\viajes\AmericaLatina.cshtml" />
+    <EntityDeploy Include="TurismoModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TurismoModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="TurismoModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TurismoModel.edmx</DependentUpon>
+      <LastGenOutput>TurismoModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="TurismoModel.edmx.diagram">
+      <DependentUpon>TurismoModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="TurismoModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TurismoModel.edmx</DependentUpon>
+      <LastGenOutput>TurismoModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\UserMailer\_Layout.cshtml" />
+    <Content Include="Views\UserMailer\Welcome.cshtml" />
+    <Content Include="Views\UserMailer\PasswordReset.cshtml" />
+    <Content Include="Views\Mailers\Index.cshtml" />
+    <Content Include="Views\UserMailer\CorreoConfirmacion.cshtml" />
+    <Content Include="Views\registro\correoConfirmacion.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1886/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
